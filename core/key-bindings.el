@@ -55,6 +55,7 @@
 (global-set-key [remap evil-scroll-line-down] 'move-end-of-line)
 (global-set-key [remap evil-copy-from-below] 'move-end-of-line)
 (global-set-key [remap evil-insert-digraph] 'kill-line)
+
 (global-set-key (kbd "C-c q") 'deft)
 
 
