@@ -47,7 +47,7 @@
       ;speedbar-file-unshown-regexp "flycheck-.*"
       sr-speedbar-width 30
       sr-speedbar-width-x 30
-      sr-speedbar-auto-refresh t
+      sr-speedbar-auto-refresh nil
       sr-speedbar-skip-other-window-p t
       sr-speedbar-right-side nil)
 
