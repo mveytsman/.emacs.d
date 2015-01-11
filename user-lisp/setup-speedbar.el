@@ -44,11 +44,11 @@
       speedbar-use-images nil
       speedbar-indentation-width 2
       speedbar-use-imenu-flag t
-      speedbar-file-unshown-regexp "flycheck-.*"
+      ;speedbar-file-unshown-regexp "flycheck-.*"
       sr-speedbar-width 30
       sr-speedbar-width-x 30
       sr-speedbar-auto-refresh t
-      sr-speedbar-skip-other-window-p nil
+      sr-speedbar-skip-other-window-p t
       sr-speedbar-right-side nil)
 
 (add-hook 'speedbar-mode-hook
@@ -64,8 +64,11 @@
           '(lambda ()
              (define-key speedbar-mode-map [S-up] 'speedbar-up-directory)
              (define-key speedbar-mode-map [right] 'speedbar-flush-expand-line)
-             (define-key speedbar-mode-map [left] 'speedbar-contract-line)))
+             (define-key speedbar-mode-map [left] 'speedbar-contract-line)
+             (define-key speedbar-mode-map (kbd "TAB") 'speedbar-toggle-line-expansion)))
 
+
+(define-key speedbar-mode-map (kbd "TAB") 'speedbar-toggle-line-expansion)
 
 
 ;; Always use the last selected window for loading files from speedbar.
@@ -98,4 +101,5 @@
 
 
 (speedbar-add-supported-extension ".go")
+(speedbar-add-supported-extension ".clj")
 (provide 'graphene-speedbar)

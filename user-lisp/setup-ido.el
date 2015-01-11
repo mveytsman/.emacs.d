@@ -6,10 +6,15 @@
       ido-auto-merge-work-directories-length -1 
       ido-create-new-buffer 'always 
       ido-use-filename-at-point nil 
-      ido-max-prospects 10) 
+      ido-max-prospects 10
+      ido-everywhere 1) 
 
 
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
+
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
+
 
 (provide 'setup-ido)

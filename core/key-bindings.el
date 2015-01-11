@@ -32,7 +32,7 @@
                 'sr-speedbar-select-window)
 (global-set-key (kbd "C-c d")
                 'my-speedbar-toggle-updates)
-
+(global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 ;; prevent madness

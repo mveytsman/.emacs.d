@@ -30,6 +30,8 @@
 (add-to-list 'load-path site-lisp-dir)
 (add-to-list 'load-path user-lisp-dir)
 
+
+
 ;; Setup packages
 (require 'setup-package)
 

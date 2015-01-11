@@ -1,6 +1,7 @@
 (require 'company)
 
 (define-key company-active-map (kbd "RET") nil)
+(define-key company-active-map [return] nil)
 (define-key company-active-map (kbd "ESC") 'company-abort)
 (define-key company-active-map [tab] 'company-complete-selection)
 (define-key company-active-map (kbd "TAB") 'company-complete-selection)
