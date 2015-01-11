@@ -1,0 +1,1 @@
+/Users/maxim/projects/go/src/github.com/nsf/gocode/emacs-company/company-go.el

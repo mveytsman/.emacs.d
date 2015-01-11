@@ -1,0 +1,10 @@
+(source "elpa" "http://elpa.gnu.org/packages/")
+(source melpa)
+
+(depends-on "deft")
+(depends-on "go-mode")
+(depends-on "go-projectile")
+(depends-on "magit")
+(depends-on "pallet")
+(depends-on "projectile")
+(depends-on "projectile-rails")
