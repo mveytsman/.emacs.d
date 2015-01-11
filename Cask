@@ -11,6 +11,7 @@
 (depends-on "go-projectile")
 (depends-on "ido-ubiquitous")
 (depends-on "magit")
+(depends-on "multi-term")
 (depends-on "pallet")
 (depends-on "popwin")
 (depends-on "projectile")

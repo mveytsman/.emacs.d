@@ -76,6 +76,15 @@
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
+;; fix scrolling bullshit (maybe)
+(setq scroll-margin 0
+      scroll-conservatively 10000)
+(setq-default scroll-up-aggressively 0
+              scroll-down-aggressively 0)
+
+;; Autosave every 500 typed characters
+(setq auto-save-interval 500)
+
 ;; Evil mode messes with undo
 ;; https://stackoverflow.com/questions/10474555/how-to-change-granularity-level-of-undo-in-emacs-evil-mode-with-undo-tree
 
