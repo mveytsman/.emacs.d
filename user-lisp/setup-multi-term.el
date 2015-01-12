@@ -19,6 +19,8 @@
 (add-to-list 'term-bind-key-alist (cons "s-v" 'term-paste))
 (add-to-list 'term-bind-key-alist (cons "s-c" 'term-copy));
 
+(setq multi-term-dedicated-window-height 30);
+
 
 ;; (when (require 'term nil t) ; only if term can be loaded..
 ;;   (setq term-bind-key-alist

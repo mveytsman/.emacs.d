@@ -9,8 +9,8 @@
                 'create-new-buffer)
 (global-set-key (kbd "C-c N")
                 'new-emacs-instance)
-(global-set-key (kbd "C-;")
-                'insert-semicolon-at-end-of-line)
+;(global-set-key (kbd "C-;")
+;                'insert-semicolon-at-end-of-line)
 (global-set-key (kbd "M-RET")
                 'newline-anywhere)
 (global-set-key (kbd "C-M-;")
@@ -32,7 +32,7 @@
 (global-set-key (kbd "C-c s")
                 'sr-speedbar-select-window)
 (global-set-key (kbd "C-c d")
-                'my-speedbar-toggle-updates)
+                'speedbar-refresh); 'my-speedbar-toggle-updates)
 
 ;;Magit
 (global-set-key (kbd "C-c g") 'magit-status)
@@ -47,15 +47,20 @@
 
 ;; Multi term
 (global-set-key (kbd "C-'") 'multi-term-dedicated-toggle)
+(global-set-key (kbd "C-;") 'multi-term-dedicated-switch-directory)
 (global-set-key (kbd "C-c t") 'multi-term)
 (global-set-key (kbd "M-]") 'multi-term-next)
 (global-set-key (kbd "M-[") 'multi-term-prev)
+
+;; Evil-Mode
 
 ;; I still like some readline bindings, not sure if this is best way to undo evil
 (global-set-key [remap evil-scroll-line-down] 'move-end-of-line)
 (global-set-key [remap evil-copy-from-below] 'move-end-of-line)
 (global-set-key [remap evil-insert-digraph] 'kill-line)
 
+
+;; Deft
 (global-set-key (kbd "C-c q") 'deft)
 
 
