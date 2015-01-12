@@ -7,6 +7,7 @@
 (depends-on "clojure-quick-repls")
 (depends-on "deft")
 (depends-on "evil")
+(depends-on "evil-nerd-commenter")
 (depends-on "evil-surround")
 (depends-on "evil-visualstar")
 (depends-on "flycheck-clojure")
