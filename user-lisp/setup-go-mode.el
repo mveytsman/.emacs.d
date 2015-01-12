@@ -11,11 +11,12 @@
   ; Call Gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
   ;;unused imports
-  (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
+  (define-key go-mode-map (kbd "C-c C-r") 'go-remove-unused-imports)
   ; Customize compile command to run go build
   (if (not (string-match "go" compile-command))
       (set (make-local-variable 'compile-command)
            "go build -v && go test -v && go vet"))
+   (define-key go-mode-map "\C-c\C-c" 'compile)
   ; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump)
 
@@ -34,4 +35,9 @@
 
 (require 'company-go)
 
+(require 'go-eldoc) ;; Don't need to require, if you install by package.el
+(add-hook 'go-mode-hook 'go-eldoc-setup)
+;(set-face-attribute 'eldoc-highlight-function-argument nil
+;                    :underline t 
+;                    :weight 'bold)
 (provide 'setup-go-mode)

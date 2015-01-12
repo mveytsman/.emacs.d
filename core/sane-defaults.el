@@ -18,6 +18,9 @@
 ;; Transparently open compressed files
 (auto-compression-mode t)
 
+;; Don't prompt when compiling
+(setq compilation-read-command nil)
+
 ;; Answering just 'y' or 'n' will do
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -89,5 +92,10 @@
 ;; https://stackoverflow.com/questions/10474555/how-to-change-granularity-level-of-undo-in-emacs-evil-mode-with-undo-tree
 
 (setq evil-want-fine-undo t)
+
+;; Switch to compile buffer after compilation
+(setq compilation-find-buffer
+      (lambda (buffer string)
+        (select-window  (get-buffer-window "*compilation*"))))
 
 (provide 'sane-defaults)
