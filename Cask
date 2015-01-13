@@ -10,6 +10,7 @@
 (depends-on "evil-nerd-commenter")
 (depends-on "evil-surround")
 (depends-on "evil-visualstar")
+(depends-on "flx-ido")
 (depends-on "flycheck-clojure")
 (depends-on "go-mode")
 (depends-on "go-projectile")
