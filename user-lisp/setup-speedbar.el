@@ -112,10 +112,6 @@
       (setq default-directory project-root)
       (speedbar-refresh))))
 
-
-(sr-speedbar-refresh-projectile-root)
-
-
 (speedbar-add-supported-extension ".go")
 (speedbar-add-supported-extension ".clj")
 (provide 'graphene-speedbar)
