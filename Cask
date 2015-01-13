@@ -15,6 +15,7 @@
 (depends-on "go-projectile")
 (depends-on "ido-ubiquitous")
 (depends-on "magit")
+(depends-on "markdown-mode")
 (depends-on "multi-term")
 (depends-on "pallet")
 (depends-on "popwin")
