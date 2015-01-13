@@ -93,9 +93,9 @@
 
 (setq evil-want-fine-undo t)
 
-;; Switch to compile buffer after compilation
-(setq compilation-find-buffer
-      (lambda (buffer string)
-        (select-window  (get-buffer-window "*compilation*"))))
+;; Switch to compile buffer after compilation - temporarily disabled
+(setq compilation-find-buffer nil)
+;      (lambda (buffer string)
+;        (select-window  (get-buffer-window "*compilation*"))))
 
 (provide 'sane-defaults)
