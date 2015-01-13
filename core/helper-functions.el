@@ -134,7 +134,7 @@
     (if (multi-term-dedicated-exist-p)
         (select-window multi-term-dedicated-window)
       (multi-term-dedicated-open))
-    (term-send-raw-string (concat "cd " dir))
+    (term-send-raw-string (concat "cd \"" dir "\""))
     (term-send-return)))
 
 (provide 'helper-functions)
