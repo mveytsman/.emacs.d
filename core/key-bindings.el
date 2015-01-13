@@ -47,7 +47,7 @@
 
 ;; Multi term
 (global-set-key (kbd "C-'") 'multi-term-dedicated-toggle)
-(global-set-key (kbd "C-;") 'multi-term-dedicated-switch-directory)
+(global-set-key (kbd "C-M-'") 'multi-term-dedicated-switch-directory)
 (global-set-key (kbd "C-c t") 'multi-term)
 (global-set-key (kbd "M-]") 'multi-term-next)
 (global-set-key (kbd "M-[") 'multi-term-prev)
