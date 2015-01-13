@@ -100,6 +100,22 @@
   (select-window last-selected-window))
 
 
+(defun sr-speedbar-refresh-projectile-root ()
+  "Refreshes the speedbar in the projectile root"
+  (interactive)
+  (when (not (sr-speedbar-window-p))
+    (let ((project-root
+         (condition-case nil
+             (projectile-project-root)
+           (error default-directory))))
+      (sr-speedbar-select-window)
+      (setq default-directory project-root)
+      (speedbar-refresh))))
+
+
+(sr-speedbar-refresh-projectile-root)
+
+
 (speedbar-add-supported-extension ".go")
 (speedbar-add-supported-extension ".clj")
 (provide 'graphene-speedbar)

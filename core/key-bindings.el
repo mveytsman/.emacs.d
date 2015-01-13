@@ -32,7 +32,7 @@
 (global-set-key (kbd "C-c s")
                 'sr-speedbar-select-window)
 (global-set-key (kbd "C-c d")
-                'speedbar-refresh); 'my-speedbar-toggle-updates)
+                'sr-speedbar-refresh-projectile-root); 'my-speedbar-toggle-updates)
 
 ;;Magit
 (global-set-key (kbd "C-c g") 'magit-status)
