@@ -1,3 +1,4 @@
+(require 'flyspell)
 ;; find aspell and hunspell automatically
 (cond
  ((executable-find "aspell")
