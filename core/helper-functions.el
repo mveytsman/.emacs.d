@@ -137,4 +137,11 @@
     (term-send-raw-string (concat "cd \"" dir "\""))
     (term-send-return)))
 
+(defun multi-term-dedicated-switch-to-buffer ()
+  "Switches to the buffer containing multi-term dedicated or opens it if it doesn't exist"
+  (interactive)
+  (if (multi-term-dedicated-exist-p)
+      (select-window multi-term-dedicated-window)
+    (multi-term-dedicated-open)))
+
 (provide 'helper-functions)

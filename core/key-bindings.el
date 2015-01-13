@@ -34,7 +34,7 @@
 (global-set-key (kbd "C-c d")
                 'sr-speedbar-refresh-projectile-root); 'my-speedbar-toggle-updates)
 
-;;Magit
+;;Ma git
 (global-set-key (kbd "C-c g") 'magit-status)
 
 ;; Helpfule for jumping around elisp
@@ -47,6 +47,7 @@
 
 ;; Multi term
 (global-set-key (kbd "C-'") 'multi-term-dedicated-toggle)
+(global-set-key (kbd "C-;") 'multi-term-dedicated-switch-to-buffer)
 (global-set-key (kbd "C-M-'") 'multi-term-dedicated-switch-directory)
 (global-set-key (kbd "C-c t") 'multi-term)
 (global-set-key (kbd "M-]") 'multi-term-next)
