@@ -64,5 +64,7 @@
 ;; Deft
 (global-set-key (kbd "C-c q") 'deft)
 
+;; Useful shortcuts for code audits
+(global-set-key (kbd "C-C f") 'my-copy-file-name-to-clipboard)
 
 (provide 'key-bindings)
