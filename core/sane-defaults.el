@@ -85,6 +85,8 @@
 (setq-default scroll-up-aggressively 0
               scroll-down-aggressively 0)
 
+(setq scroll-step 1)
+(setq auto-window-vscroll nil)
 ;; Autosave every 500 typed characters
 (setq auto-save-interval 500)
 
