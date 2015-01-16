@@ -19,6 +19,7 @@
 (depends-on "markdown-mode")
 (depends-on "multi-term")
 (depends-on "pallet")
+(depends-on "php-mode")
 (depends-on "popwin")
 (depends-on "projectile")
 (depends-on "projectile-rails")
