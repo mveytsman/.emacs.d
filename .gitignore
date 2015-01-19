@@ -61,3 +61,4 @@ project-persist
 .cask
 recentf
 ido.last
+/user-lisp/setup-smooth-scrolling.el
