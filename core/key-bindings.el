@@ -67,4 +67,6 @@
 ;; Useful shortcuts for code audits
 (global-set-key (kbd "C-C f") 'my-copy-file-name-to-clipboard)
 
+;; Multiple cursors
+(global-set-key (kbd "C-c r") 'mc/mark-all-like-this-dwim)
 (provide 'key-bindings)
