@@ -15,7 +15,7 @@
   ; Customize compile command to run go build
   (if (not (string-match "go" compile-command))
       (set (make-local-variable 'compile-command)
-           "go build -v && go test -v && go vet"))
+           "go test -v"))
    (define-key go-mode-map "\C-c\C-c" 'compile)
   ; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump)
