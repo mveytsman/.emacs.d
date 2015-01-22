@@ -1,15 +1,15 @@
 (require 'cider)
 (add-hook 'cider-repl-mode-hook #'company-mode)
-(add-hook 'cider-mode-hook #'company-mode)
+(add-hook 'clojure-mode-hook #'company-mode)
 
 (add-hook 'cider-repl-mode-hook #'subword-mode)
-(add-hook 'cider-mode-hook #'subword-mode)
+(add-hook 'clojure-mode-hook #'subword-mode)
 
 (add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
 (add-hook 'cider-mode-hook #'smartparens-strict-mode)
 
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'cider-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
 
 
@@ -28,4 +28,3 @@
 (add-to-list 'same-window-buffer-names "<em>nrepl</em>")
 
 (provide 'setup-cider)
-i
