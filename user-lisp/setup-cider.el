@@ -5,13 +5,8 @@
 (add-hook 'cider-repl-mode-hook #'subword-mode)
 (add-hook 'clojure-mode-hook #'subword-mode)
 
-(add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
-(add-hook 'cider-mode-hook #'smartparens-strict-mode)
 
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-
-
 
 (setq cider-show-error-buffer 'except-in-repl)
 
@@ -28,3 +23,4 @@
 (add-to-list 'same-window-buffer-names "<em>nrepl</em>")
 
 (provide 'setup-cider)
+

@@ -30,9 +30,9 @@
 ;; Add smartparens-strict-mode to all sp--lisp-modes hooks. C-h v sp--lisp-modes
 ;; to customize/view this list.
 (mapc (lambda (mode)
-        (add-hook (intern (format "%s-hook" (symbol-name mode))) 'smartparens-strict-mode))
+        (add-hook (intern (format "%s-hook" (symbol-name mode))) 'smartparens-strict-mode)
+        (add-hook (intern (format "%s-hook" (symbol-name mode))) 'rainbow-delimiters-mode))
       sp--lisp-modes)
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
 ;; Conveniently set keys into the sp-keymap, limiting the keybinding to buffers
 ;; with SP mode activated
