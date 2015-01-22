@@ -29,7 +29,8 @@
 (add-to-list 'default-frame-alist '(font . "-*-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1"))
 
 
-(load-theme 'zenburn t)
+                                        ;(load-theme 'zenburn t)
+(load-theme 'solarized-dark t)
 (load-theme 'graphene t)
 
 

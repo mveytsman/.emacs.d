@@ -5,6 +5,7 @@
 (depends-on "clojure-cheatsheet")
 (depends-on "clojure-mode")
 (depends-on "clojure-quick-repls")
+(depends-on "color-theme-solarized")
 (depends-on "deft")
 (depends-on "evil")
 (depends-on "evil-nerd-commenter")
