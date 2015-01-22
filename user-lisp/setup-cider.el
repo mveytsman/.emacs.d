@@ -2,6 +2,17 @@
 (add-hook 'cider-repl-mode-hook #'company-mode)
 (add-hook 'cider-mode-hook #'company-mode)
 
+(add-hook 'cider-repl-mode-hook #'subword-mode)
+(add-hook 'cider-mode-hook #'subword-mode)
+
+(add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
+(add-hook 'cider-mode-hook #'smartparens-strict-mode)
+
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'cider-mode-hook #'rainbow-delimiters-mode)
+
+
+
 (setq cider-show-error-buffer 'except-in-repl)
 
 ;;(require 'popwin)
@@ -12,4 +23,9 @@
 (define-key cider-repl-mode-map (kbd "s-<down>") 'cider-repl-next-input)
 
 
+(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
+(setq nrepl-popup-stacktraces nil)
+(add-to-list 'same-window-buffer-names "<em>nrepl</em>")
+
 (provide 'setup-cider)
+i
