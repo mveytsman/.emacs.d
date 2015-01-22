@@ -20,9 +20,13 @@
 (define-key evil-normal-state-map (kbd "s-p") 'evil-paste-after)
 
 
+(add-to-list 'evil-emacs-state-modes 'cider-error-buffer)
+
 
 ;; I prefer having jump-to-tag bound to M-.
 (define-key evil-normal-state-map (kbd "M-.") nil)
+;; this does something wonky to closing popup buffers
+(define-key evil-normal-state-map (kbd "q") nil)
 
 (setq evil-search-module 'evil-search
       evil-want-C-u-scroll t
