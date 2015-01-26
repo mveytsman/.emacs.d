@@ -23,6 +23,9 @@
                :unless '(sp-in-string-p)
                :actions '(insert wrap))
 
+;; Remove weird backtick pairing
+(sp-pair "`" nil :actions :rem)
+
 (dolist (mode '(coffee-mode shell-mode))
   (add-to-list 'sp-autoescape-string-quote-if-empty mode))
 
@@ -56,7 +59,7 @@
         ("C-M-n" sp-next-sexp)
         ("C-M-p" sp-previous-sexp)
  
-        ("C-M-k" sp-kill-sexp)
+        ("C-k" sp-kill-sexp)
         ("C-M-w" sp-copy-sexp)
  
         ("M-<delete>" sp-unwrap-sexp)
