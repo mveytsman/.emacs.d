@@ -18,6 +18,7 @@
 (depends-on "ido-ubiquitous")
 (depends-on "magit")
 (depends-on "markdown-mode")
+(depends-on "midje-mode")
 (depends-on "multi-term")
 (depends-on "multiple-cursors")
 (depends-on "pallet")
