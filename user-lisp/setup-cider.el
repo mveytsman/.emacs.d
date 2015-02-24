@@ -40,5 +40,8 @@
   (ANY 2)
   (context 2))
 
+
+(setq cider-repl-history-file "~/.emacs/cider-history")
+
 (provide 'setup-cider)
 
