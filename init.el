@@ -41,8 +41,12 @@
 ;; Write backup files to own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
-                 (concat user-emacs-directory "backups")))))
-
+                 (concat user-emacs-directory "backups"))))
+      backup-by-copying t      ; don't clobber symlinks
+      delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)       ; use versioned backups
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
 
