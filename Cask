@@ -1,5 +1,7 @@
-(source "elpa" "http://elpa.gnu.org/packages/")
-(source melpa)
+(source "melpa" "http://melpa.org/packages/")
+(source "melpa-stable" "http://stable.melpa.org/packages/")
+(source gnu)
+(source org)
 
 (depends-on "cider")
 (depends-on "clojure-cheatsheet")

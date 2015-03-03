@@ -44,4 +44,3 @@
 (setq cider-repl-history-file "~/.emacs.d/cider-history")
 
 (provide 'setup-cider)
-

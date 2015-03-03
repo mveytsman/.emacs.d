@@ -1,9 +1,11 @@
 ; Set up packaging system
 (require 'package)
+
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("melpa" . "http://melpa.milkbox.net/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
+;        ("melpa" . "http://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")
+        ("melpa-stable" . "http://stable.melpa.org/packages/")))
 (package-initialize)
 
 (unless (file-exists-p "~/.emacs.d/elpa/archives/melpa")
