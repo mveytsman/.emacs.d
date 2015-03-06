@@ -30,3 +30,4 @@
 (depends-on "projectile-rails")
 (depends-on "rainbow-delimiters")
 (depends-on "smartparens")
+(depends-on "yaml-mode")
