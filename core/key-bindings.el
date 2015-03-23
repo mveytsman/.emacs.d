@@ -1,4 +1,5 @@
 (require 'helper-functions)
+(require 'comint)
 
 ;;Straight from graphene
 (global-set-key (kbd "C-x k")
@@ -69,4 +70,9 @@
 
 ;; Multiple cursors
 (global-set-key (kbd "C-c r") 'mc/mark-all-like-this-dwim)
+
+;; Comint mode
+
+(define-key comint-mode-map (kbd "s-<up>") 'comint-prev-input)
+(define-key comint-mode-map (kbd "s-<down>") 'comint-next-input)
 (provide 'key-bindings)
