@@ -3,6 +3,7 @@
 (source gnu)
 (source org)
 
+(depends-on "chruby")
 (depends-on "cider")
 (depends-on "clojure-cheatsheet")
 (depends-on "clojure-mode")
@@ -18,6 +19,7 @@
 (depends-on "go-mode")
 (depends-on "go-projectile")
 (depends-on "ido-ubiquitous")
+(depends-on "jsx-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "midje-mode")
@@ -29,5 +31,7 @@
 (depends-on "projectile")
 (depends-on "projectile-rails")
 (depends-on "rainbow-delimiters")
+(depends-on "robe")
+(depends-on "scss-mode")
 (depends-on "smartparens")
 (depends-on "yaml-mode")
