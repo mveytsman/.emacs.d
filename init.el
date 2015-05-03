@@ -40,8 +40,11 @@
 
 ;; Write backup files to own directory
 (setq backup-directory-alist
-      `(("." . ,(expand-file-name
+      `(("." . , (expand-file-name
                  (concat user-emacs-directory "backups"))))
+      auto-save-file-name-transforms
+      `((".*" , (expand-file-name
+                 (concat user-emacs-directory "autosaves")) t))
       backup-by-copying t      ; don't clobber symlinks
       delete-old-versions t
       kept-new-versions 6
