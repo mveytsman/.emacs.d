@@ -19,6 +19,7 @@
 (depends-on "go-mode")
 (depends-on "go-projectile")
 (depends-on "ido-ubiquitous")
+(depends-on "jinja2-mode")
 (depends-on "jsx-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")
