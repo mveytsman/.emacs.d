@@ -30,36 +30,21 @@ tramp
 
 # cask packages
 .cask/
-auto-save-list
-backups
-autosaves
-*~
-#*#
-.places
-session.*
-tramp
-elpa
-swank
-emms
-site-lisp/adventur-mode
-*.elc
-*.el~
-.DS_Store
-.yas-compiled-snippets.el
-.cask
-ac-comphist.dat
-jabber-avatar-cache
-jabber-history
-var
-history
+dist/
+
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
 projectile-bookmarks.eld
-cider-history
 projectile.cache
-url
-smex-items
-org-clock-save.el
-project-persist
-.cask
+
+# recentf
 recentf
-ido.last
-/user-lisp/setup-smooth-scrolling.el
+
+# directory configuration
+.dir-locals.el
