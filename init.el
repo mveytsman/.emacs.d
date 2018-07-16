@@ -221,3 +221,32 @@
 	(projectile-rails-spring-command . "bin/spring")
 	(projectile-rails-zeus-command . "bin/zeus")
 	(flycheck-ruby-rubocop-executable . "bin/rubocop")))
+
+
+;; Org Mode
+
+(use-package org
+  :ensure t
+  :config (org-babel-do-load-languages
+	   'org-babel-load-languages
+	   '((awk . t)
+	     (C . t)
+	     (calc . t)
+	     (clojure . t)
+	     (css . t)
+	     (ditaa . t)
+	     (ditaa . t)
+	     (haskell . t)
+	     (java . t)
+	     (js . t)
+	     (latex . t)
+	     (lisp . t)
+	     (makefile . t)
+	     (perl . t)
+	     (python . t)
+	     (ruby . t)
+	     ;; (scala . t)
+	     (screen . t)
+	     ;; (sh . t)
+	     (sql . t)
+	     (sqlite . t))))
