@@ -307,3 +307,9 @@
 	     ;; (sh . t)
 	     (sql . t)
 	     (sqlite . t))))
+
+;; Deft mode
+(use-package deft
+  :ensure t
+  :bind ("C-c q" . deft)
+  :config (setq deft-directory "~/Dropbox/org"))
