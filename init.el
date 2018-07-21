@@ -78,6 +78,18 @@
   :init (rich-minority-mode 1)
   :config (setq rm-blacklist ""))
 
+;; Show lines when goto-line invoked
+(defun mveytsman/goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (display-line-numbers-mode 1)
+        (goto-line (read-number "Goto line: ")))
+    (display-line-numbers-mode -1)))
+
+(global-set-key [remap goto-line] 'mveytsman/goto-line-with-feedback)
+
 ;; Better File Manager
 
 (require 'dired-x)
@@ -88,6 +100,14 @@
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
+
+;; Quickly open init file
+(defun mveytsman/find-user-init-file ()
+  "Edit the `user-init-file', in another window."
+  (interactive)
+  (find-file-other-window user-init-file))
+
+(global-set-key (kbd "C-c f") 'mveytsman/find-user-init-file)
 
 ;; Better Completion
 (use-package company
@@ -139,6 +159,12 @@
   (projectile-mode)
   (setq projectile-enable-caching t)
   (setq projectile-completion-system 'ivy))
+
+;; Neotree
+(use-package neotree
+  :ensure t
+  :bind ("C-c t" . neotree-toggle))
+
 ;; Flycheck
 (use-package flycheck
   :ensure t
