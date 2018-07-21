@@ -216,8 +216,21 @@
 (defun mveytsman/ansi-term ()
   (interactive)
   (ansi-term "/usr/local/bin/fish"))
+
 (global-set-key (kbd "C-c e") 'eshell)
 (global-set-key (kbd "C-x t") 'mveytsman/ansi-term)
+
+(use-package shell-pop
+  :ensure t
+  :config
+  (custom-set-variables
+   '(shell-pop-default-directory "~/")
+   '(shell-pop-shell-type
+     (quote ("eshell" "*eshell*" (lambda nil (mveytsman/ansi-term)))))
+   '(shell-pop-universal-key "C-'")
+   '(shell-pop-window-height 30)
+   '(shell-pop-full-span t)
+   '(shell-pop-window-position "bottom")))
 
 ;; Ruby
 (use-package ruby-mode
