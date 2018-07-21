@@ -222,6 +222,22 @@
 	(projectile-rails-zeus-command . "bin/zeus")
 	(flycheck-ruby-rubocop-executable . "bin/rubocop")))
 
+;; Elixir
+(use-package elixir-mode
+  :ensure t
+  :init
+  (add-hook 'elixir-mode-hook
+            (lambda () (add-hook 'before-save-hook 'elixir-format nil t))))
+
+(use-package alchemist
+  :ensure t
+  :config
+  (setq alchemist-goto-erlang-source-dir "/usr/local/opt/asdf/installs/erlang/21.0.3/")
+  (setq alchemist-goto-elixir-source-dir "/usr/local/opt/asdf/installs/elixir/1.6.6/"))
+
+(use-package flycheck-credo
+  :ensure t
+  :init (add-hook 'elixir-mode-hook 'flycheck-credo-setup))
 
 ;; Org Mode
 
