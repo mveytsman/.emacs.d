@@ -107,7 +107,6 @@
   :bind
   ("C-c i" . counsel-imenu)
   ("C-c s" . swiper)
-  ("C-c g" . counsel-git-grep)
   ("C-x C-y" . counsel-yank-pop))
 
 (use-package counsel-projectile
@@ -119,13 +118,16 @@
 (use-package magit
   :ensure t
   :bind
-  ("C-c m" . magit-status)
+  ("C-c g" . magit-status)
   ("C-c b" . magit-blame)
   :config (magit-add-section-hook 'magit-status-sections-hook
 				  'magit-insert-unpushed-to-upstream
 				  'magit-insert-unpushed-to-upstream-or-recent
 				  'replace))
 
+(use-package libgit
+  :ensure t
+  :after magit)
 ;; Modes
 
 ;; Projectile
