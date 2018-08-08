@@ -74,6 +74,10 @@
   :ensure t
   :bind ("M-o" . ace-window))
 
+(use-package popwin
+  :ensure t
+  :config (popwin-mode 1))
+
 ;; Better comments
 (use-package comment-dwim-2
   :ensure t
@@ -120,7 +124,7 @@
   :ensure t
   :config (global-company-mode))
 
-;; Completion and filtering with ivy, supported by counsel.
+;; Completion and filtering with ivy, supported by counsel w/ smex.
 
 
 (use-package ivy
@@ -132,12 +136,20 @@
   :ensure t
   :bind
   ("C-c i" . counsel-imenu)
-  ("C-c s" . swiper)
-  ("C-x C-y" . counsel-yank-pop))
+  ("C-s" . swiper)
+  ("C-x C-y" . counsel-yank-pop)
+  ("M-x" . counsel-M-x)
+  ("C-h v" . counsel-describe-variable)
+  ("C-h f" . counsel-describe-function)
+  ("C-h b" . counsel-descbinds)
+  ("C-h C-b" . describe-bindings))
 
 (use-package counsel-projectile
   :ensure t
   :config (counsel-projectile-mode))
+
+(use-package smex
+  :ensure t)
 
 ;; Magit
 
