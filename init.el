@@ -3,7 +3,8 @@
 
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
-	("melpa" . "https://melpa.org/packages/")))
+	("melpa" . "https://melpa.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages")))
 
 ;(setq debug-on-error 't
 ;      network-security-level 'low)
@@ -67,6 +68,11 @@
 (scroll-bar-mode 0)
 (tool-bar-mode 0)
 (delete-selection-mode t)
+
+;; Bettewr window navigation
+(use-package ace-window
+  :ensure t
+  :bind ("M-o" . ace-window))
 
 ;; Better comments
 (use-package comment-dwim-2
@@ -280,11 +286,28 @@
   :ensure t
   :init (add-hook 'elixir-mode-hook 'flycheck-credo-setup))
 
+;; Cojure
+(use-package cider
+  :ensure t
+  :bind ("C-c M-j" . cider-jack-in))
+
+;; Markdown mode
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("\\.md\\'" . gfm-mode)
+         ("\\.markdown\\'" . gfm-mode))
+  :init (setq markdown-command "multimarkdown"))
+
 ;; Org Mode
 
 (use-package org
   :ensure t
-  :config (org-babel-do-load-languages
+  :config
+  (setq org-startup-indented 't
+        org-startup-folded nil)
+
+  (org-babel-do-load-languages
 	   'org-babel-load-languages
 	   '((awk . t)
 	     (C . t)
@@ -312,4 +335,5 @@
 (use-package deft
   :ensure t
   :bind ("C-c q" . deft)
-  :config (setq deft-directory "~/Dropbox/org"))
+  :config (setq deft-directory "~/Dropbox/org"
+                deft-default-extension "org"))
