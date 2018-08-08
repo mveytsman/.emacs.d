@@ -57,7 +57,7 @@
 ;; Interface
 
 ;; Better defaults
-(setq make-backup-files nil
+(setq-default make-backup-files nil
       auto-save-default nil
       indent-tabs-mode nil
       ns-confirm-quit 1)
@@ -175,9 +175,9 @@
   :ensure t)
 
 ;; Cleanup whitespace on save
-(use-package whitespace-cleanup-mode
-  :ensure t
-  :config (global-whitespace-cleanup-mode))
+;;(use-package whitespace-cleanup-mode
+;;  :ensure t
+;;  :config (global-whitespace-cleanup-mode))
 
 ;; Elisp
 (use-package slime
