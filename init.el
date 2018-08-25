@@ -88,6 +88,11 @@
   :init (rich-minority-mode 1)
   :config (setq rm-blacklist ""))
 
+;; better replace
+(use-package visual-regexp
+  :ensure t
+  :bind ("C-c r" . vr/replace))
+
 ;; Show lines when goto-line invoked
 (defun mveytsman/goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input"
