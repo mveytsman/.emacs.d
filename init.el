@@ -170,11 +170,11 @@
   :ensure t
   :bind
   ("C-c g" . magit-status)
-  ("C-c b" . magit-blame)
-  :config (magit-add-section-hook 'magit-status-sections-hook
-				  'magit-insert-unpushed-to-upstream
-				  'magit-insert-unpushed-to-upstream-or-recent
-				  'replace))
+  :config
+  (magit-add-section-hook 'magit-status-sections-hook
+			  'magit-insert-unpushed-to-upstream
+			  'magit-insert-unpushed-to-upstream-or-recent
+			  'replace))
 
 (use-package libgit
   :ensure t
