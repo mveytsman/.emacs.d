@@ -124,8 +124,7 @@
   :ensure t
   :config (global-company-mode))
 
-;; Completion and filtering with ivy, supported by counsel w/ smex.
-
+;; Completion and filtering with ivy, supported by counsel w/ amx.
 
 (use-package ivy
   :ensure t
@@ -139,6 +138,7 @@
   ("C-s" . swiper)
   ("C-x C-y" . counsel-yank-pop)
   ("M-x" . counsel-M-x)
+  ("C-c M-x" . amx-major-mode-commands)
   ("C-h v" . counsel-describe-variable)
   ("C-h f" . counsel-describe-function)
   ("C-h b" . counsel-descbinds)
@@ -148,7 +148,7 @@
   :ensure t
   :config (counsel-projectile-mode))
 
-(use-package smex
+(use-package amx
   :ensure t)
 
 ;; Magit
