@@ -138,11 +138,13 @@
   :config (global-company-mode))
 
 ;; Completion and filtering with ivy, supported by counsel w/ amx.
-
 (use-package ivy
   :ensure t
   :config (setq ivy-use-selectable-prompt t)
   :init (ivy-mode 1))
+
+(use-package ivy-hydra
+  :ensure t)
 
 (use-package counsel
   :ensure t
@@ -184,10 +186,13 @@
 ;; Projectile
 (use-package projectile
   :ensure t
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
   :bind (;("C-p s" . projectile-switch-open-project)
 	 ("C-x p" . projectile-switch-project))
   :config
   (projectile-mode)
+  (setq projectile-keymap-prefix (kbd "C-c P"))
   (setq projectile-enable-caching t)
   (setq projectile-completion-system 'ivy))
 
@@ -241,7 +246,11 @@
 
 ;; Javascript
 (setq js-indent-level 2)
+(setq css-indent-offset 2)
 
+;; YAML
+(use-package yaml-mode
+  :ensure t)
 ;; Web mode
 (use-package web-mode
   :ensure t
@@ -329,7 +338,7 @@
   :ensure t
   :init (add-hook 'elixir-mode-hook 'flycheck-credo-setup))
 
-;; Cojure
+;; Clojure
 (use-package cider
   :ensure t
   :bind ("C-c M-j" . cider-jack-in))
