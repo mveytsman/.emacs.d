@@ -4,7 +4,9 @@
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
 	("melpa" . "https://melpa.org/packages/")
-        ("melpa-stable" . "https://stable.melpa.org/packages")))
+        ("melpa-stable" . "https://stable.melpa.org/packages/")))
+
+(package-reinstall 'magit)
 
 ;(setq debug-on-error 't
 ;      network-security-level 'low)
