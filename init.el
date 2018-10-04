@@ -211,9 +211,8 @@
   :ensure t)
 
 ;; Cleanup whitespace on save
-;;(use-package whitespace-cleanup-mode
-;;  :ensure t
-;;  :config (global-whitespace-cleanup-mode))
+(use-package ws-butler
+ :ensure t)
 
 ;; Elisp
 (use-package slime
