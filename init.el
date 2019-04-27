@@ -295,7 +295,7 @@
    '(shell-pop-window-position "bottom")))
 
 ;; Ruby
-(use-package ruby-mode
+(use-package enh-ruby-mode
   :ensure t
   :mode "\\*.rb\\'"
   :config 
