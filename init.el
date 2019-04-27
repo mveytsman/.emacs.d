@@ -240,7 +240,12 @@
 ;; Go
 (use-package go-mode
   :ensure t
-  :mode "\\*.go\\'")
+  :mode "\\*.go\\'"
+  :init (add-hook 'go-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'gofmt-before-save)
+            (setq tab-width 4)
+            (setq indent-tabs-mode 1))))
 
 
 ;; Javascript
@@ -351,6 +356,10 @@
   :mode (("\\.md\\'" . gfm-mode)
          ("\\.markdown\\'" . gfm-mode))
   :init (setq markdown-command "multimarkdown"))
+
+;; Rust
+(use-package rust-mode
+  :ensure t)
 
 ;; Org Mode
 
