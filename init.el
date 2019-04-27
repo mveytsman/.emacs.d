@@ -212,7 +212,10 @@
 
 ;; Cleanup whitespace on save
 (use-package ws-butler
- :ensure t)
+  :ensure t
+  :init
+  (ws-butler-global-mode)
+  )
 
 ;; Elisp
 (use-package slime
