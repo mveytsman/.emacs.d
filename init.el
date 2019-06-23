@@ -31,8 +31,8 @@
 ;  (auto-package-update-maybe))
 
 ;; Themes
-(use-package color-theme
-  :ensure t)
+;(use-package color-theme
+;  :ensure t)
 (use-package material-theme
   :ensure t
   :config
