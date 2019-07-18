@@ -199,7 +199,9 @@
 ;; Neotree
 (use-package neotree
   :ensure t
-  :bind ("C-c t" . neotree-toggle))
+  :bind ("C-c t" . neotree-toggle)
+  :init
+  (setq projectile-switch-project-action 'neotree-projectile-action))
 
 ;; Flycheck
 (use-package flycheck
