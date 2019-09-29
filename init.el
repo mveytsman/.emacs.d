@@ -23,12 +23,12 @@
 (load custom-file)
 
 ;; Update packages
-;(use-package auto-package-update
-;  :ensure t
-;  :config
-;   (setq auto-package-update-delete-old-versions t)
-;  (setq auto-package-update-hide-results t)
-;  (auto-package-update-maybe))
+(use-package auto-package-update
+ :ensure t
+ :config
+  (setq auto-package-update-delete-old-versions t)
+ (setq auto-package-update-hide-results t)
+ (auto-package-update-maybe))
 
 ;; Themes
 ;(use-package color-theme
@@ -38,7 +38,7 @@
   :config
   (load-theme 'material t)
   (toggle-frame-fullscreen))
-  
+
 ;; Path
 (use-package exec-path-from-shell
   :ensure t
@@ -57,6 +57,12 @@
 			(projects . 5)))
   :init
   (dashboard-setup-startup-hook))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'prog-mode-hook 'electric-pair-mode))
 
 ;; Start the server if it's not running
 (require 'server)
@@ -231,7 +237,7 @@
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 ;; Csv
 
-(use-package csv-mode
+(use-package csv
   :ensure t
   :mode "\\.csv\\'")
 
