@@ -364,6 +364,10 @@
 (use-package rust-mode
   :ensure t)
 
+;; Nix
+(use-package nix-mode
+  :ensure t)
+
 ;; Org Mode
 
 (use-package org
