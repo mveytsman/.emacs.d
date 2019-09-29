@@ -369,8 +369,29 @@
   :init (setq markdown-command "multimarkdown"))
 
 ;; Rust
-(use-package rust-mode
+(use-package toml-mode
   :ensure t)
+
+(use-package racer
+  :ensure t
+  ;:hook company-mode
+  :config (setq company-tooltip-align-annotations t)
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+  (add-hook 'racer-mode-hook #'company-mode))
+
+(use-package rust-mode
+  :ensure t
+  :requires lsp-mode
+  :config
+  (setq rust-format-on-save t))
+
+;(use-package cargo
+ ; :hook (rust-mode . cargo-minor-mode))
+
+(use-package flycheck-rust
+  :ensure t
+  :hook (flycheck-mode . flycheck-rust-setup))
 
 ;; Org Mode
 
