@@ -23,12 +23,12 @@
 (load custom-file)
 
 ;; Update packages
-;(use-package auto-package-update
-;  :ensure t
-;  :config
-;   (setq auto-package-update-delete-old-versions t)
-;  (setq auto-package-update-hide-results t)
-;  (auto-package-update-maybe))
+(use-package auto-package-update
+ :ensure t
+ :config
+  (setq auto-package-update-delete-old-versions t)
+ (setq auto-package-update-hide-results t)
+ (auto-package-update-maybe))
 
 ;; Themes
 ;(use-package color-theme
@@ -39,7 +39,7 @@
   (load-theme 'material t)
   '(toggle-frame-fullscreen)
   )
-  
+
 ;; Path
 (use-package exec-path-from-shell
   :ensure t
@@ -59,6 +59,12 @@
   :init
   (dashboard-setup-startup-hook))
 
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'prog-mode-hook 'electric-pair-mode))
+
 ;; Start the server if it's not running
 (require 'server)
 (unless (server-running-p)
@@ -67,7 +73,7 @@
 ;; Interface
 
 ;; Better defaults
-(setq-default make-backup-files nil
+(setq make-backup-files nil
       auto-save-default nil
       indent-tabs-mode nil)
 (setq backup-directory-alist '(("." . "~/emacs-backups")))
@@ -202,7 +208,9 @@
 ;; Neotree
 (use-package neotree
   :ensure t
-  :bind ("C-c t" . neotree-toggle))
+  :bind ("C-c t" . neotree-toggle)
+  :init
+  (setq projectile-switch-project-action 'neotree-projectile-action))
 
 ;; Flycheck
 (use-package flycheck
@@ -232,7 +240,7 @@
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 ;; Csv
 
-(use-package csv-mode
+(use-package csv
   :ensure t
   :mode "\\.csv\\'")
 
@@ -363,13 +371,34 @@
          ("\\.markdown\\'" . gfm-mode))
   :init (setq markdown-command "multimarkdown"))
 
-;; Rust
-(use-package rust-mode
-  :ensure t)
-
 ;; Nix
 (use-package nix-mode
   :ensure t)
+
+;; Rust
+(use-package toml-mode
+  :ensure t)
+
+(use-package racer
+  :ensure t
+  ;:hook company-mode
+  :config (setq company-tooltip-align-annotations t)
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+  (add-hook 'racer-mode-hook #'company-mode))
+
+(use-package rust-mode
+  :ensure t
+  :requires lsp-mode
+  :config
+  (setq rust-format-on-save t))
+
+;(use-package cargo
+ ; :hook (rust-mode . cargo-minor-mode))
+
+(use-package flycheck-rust
+  :ensure t
+  :hook (flycheck-mode . flycheck-rust-setup))
 
 ;; Org Mode
 
