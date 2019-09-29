@@ -131,7 +131,7 @@
 (defun mveytsman/find-user-init-file ()
   "Edit the `user-init-file', in another window."
   (interactive)
-  (find-file-other-window user-init-file))
+  (find-file user-init-file))
 
 (global-set-key (kbd "C-c f") 'mveytsman/find-user-init-file)
 
