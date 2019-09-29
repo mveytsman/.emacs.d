@@ -69,8 +69,10 @@
 ;; Better defaults
 (setq-default make-backup-files nil
       auto-save-default nil
-      indent-tabs-mode nil
-      ns-confirm-quit 1)
+      indent-tabs-mode nil)
+(setq backup-directory-alist '(("." . "~/emacs-backups")))
+
+;      ns-confirm-quit 1)
 
 (global-auto-revert-mode 1)
 (menu-bar-mode 0)
