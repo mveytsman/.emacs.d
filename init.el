@@ -37,7 +37,8 @@
   :ensure t
   :config
   (load-theme 'material t)
-  (toggle-frame-fullscreen))
+  '(toggle-frame-fullscreen)
+  )
   
 ;; Path
 (use-package exec-path-from-shell
