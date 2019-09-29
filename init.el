@@ -53,7 +53,7 @@
 (use-package dashboard
   :ensure t
   :config
-  (setq dashboard-items '((recents  . 5)
+ (setq dashboard-items '((recents  . 5)
 			(bookmarks . 5)
 			(projects . 5)))
   :init
