@@ -6,15 +6,16 @@
 	("melpa" . "https://melpa.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-;(setq debug-on-error 't
-;      network-security-level 'low)
+;;(setq debug-on-error 't
+;;      network-security-level 'low)
 
 (defun mveytsman/package-init ()
   "Initialize the package manager and install use-package."
   (package-initialize)
   (unless (package-installed-p 'use-package)
     (package-refresh-contents)
-    (package-install 'use-package)))
+    (package-install 'use-package)
+    (setq use-package-always-ensure t)))
 
 (mveytsman/package-init)
 
@@ -24,42 +25,35 @@
 
 ;; Update packages
 (use-package auto-package-update
- :ensure t
- :config
+  :config
   (setq auto-package-update-delete-old-versions t)
- (setq auto-package-update-hide-results t)
- (auto-package-update-maybe))
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; Themes
-;(use-package color-theme
-;  :ensure t)
 (use-package material-theme
-  :ensure t
   :config
   (load-theme 'material t)
-  (toggle-frame-fullscreen))
+  '(toggle-frame-fullscreen)
+  )
 
 ;; Path
 (use-package exec-path-from-shell
-  :ensure t
   :config (exec-path-from-shell-initialize))
 
-;(setq inhibit-startup-message 't)
+;;(setq inhibit-startup-message 't)
 (use-package unkillable-scratch
-  :ensure t
   :init (unkillable-scratch))
 
 (use-package dashboard
-  :ensure t
   :config
   (setq dashboard-items '((recents  . 5)
-			(bookmarks . 5)
-			(projects . 5)))
+			  (bookmarks . 5)
+			  (projects . 5)))
   :init
   (dashboard-setup-startup-hook))
 
 (use-package rainbow-delimiters
-  :ensure t
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'prog-mode-hook 'electric-pair-mode))
@@ -74,8 +68,10 @@
 ;; Better defaults
 (setq make-backup-files nil
       auto-save-default nil
-      indent-tabs-mode nil
-      ns-confirm-quit 1)
+      indent-tabs-mode nil)
+(setq backup-directory-alist '(("." . "~/emacs-backups")))
+
+;;      ns-confirm-quit 1)
 
 (global-auto-revert-mode 1)
 (menu-bar-mode 0)
@@ -85,27 +81,25 @@
 
 ;; Bettewr window navigation
 (use-package ace-window
-  :ensure t
   :bind ("M-o" . ace-window))
 
 (use-package popwin
-  :ensure t
   :config (popwin-mode 1))
 
 ;; Better comments
 (use-package comment-dwim-2
-  :ensure t
   :bind ("M-;" . comment-dwim-2))
 ;; Hide all minor modes from the modeline (since there are usually like a
 (use-package rich-minority
-  :ensure t
   :init (rich-minority-mode 1)
   :config (setq rm-blacklist ""))
 
 ;; better replace
 (use-package visual-regexp
-  :ensure t
   :bind ("C-c r" . vr/replace))
+
+(use-package visual-regexp-steroids
+  :ensure t)
 
 ;; Show lines when goto-line invoked
 (defun mveytsman/goto-line-with-feedback ()
@@ -127,25 +121,22 @@
 
 ;; Better Text Selection
 (use-package expand-region
-  :ensure t
   :bind ("C-=" . er/expand-region))
 
 ;; Quickly open init file
 (defun mveytsman/find-user-init-file ()
   "Edit the `user-init-file', in another window."
   (interactive)
-  (find-file-other-window user-init-file))
+  (find-file user-init-file))
 
 (global-set-key (kbd "C-c f") 'mveytsman/find-user-init-file)
 
 ;; Better Completion
 (use-package company
-  :ensure t
   :config (global-company-mode))
 
 ;; Completion and filtering with ivy, supported by counsel w/ amx.
 (use-package ivy
-  :ensure t
   :config (setq ivy-use-selectable-prompt t)
   :init (ivy-mode 1))
 
@@ -153,7 +144,6 @@
   :ensure t)
 
 (use-package counsel
-  :ensure t
   :bind
   ("C-c i" . counsel-imenu)
   ("C-s" . swiper)
@@ -166,7 +156,6 @@
   ("C-h C-b" . describe-bindings))
 
 (use-package counsel-projectile
-  :ensure t
   :config (counsel-projectile-mode))
 
 (use-package amx
@@ -175,7 +164,6 @@
 ;; Magit
 
 (use-package magit
-  :ensure t
   :bind
   ("C-c g" . magit-status)
   :config
@@ -185,13 +173,11 @@
 			  'replace))
 
 (use-package libgit
-  :ensure t
   :after magit)
 ;; Modes
 
 ;; Projectile
 (use-package projectile
-  :ensure t
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :bind (;("C-p s" . projectile-switch-open-project)
@@ -204,14 +190,12 @@
 
 ;; Neotree
 (use-package neotree
-  :ensure t
   :bind ("C-c t" . neotree-toggle)
   :init
   (setq projectile-switch-project-action 'neotree-projectile-action))
 
 ;; Flycheck
 (use-package flycheck
-  :ensure t
   :init
   (global-flycheck-mode))
 
@@ -220,43 +204,37 @@
 
 ;; Cleanup whitespace on save
 (use-package ws-butler
-  :ensure t
   :init
   (ws-butler-global-mode)
   )
 
 ;; Elisp
 (use-package slime
-  :ensure t
   :config (setq inferior-lisp-program (executable-find "sbcl")))
 
 (use-package slime-company
-  :ensure t
   :init (slime-setup '(slime-fancy slime-company)))
 (with-eval-after-load 'flycheck
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 ;; Csv
 
 (use-package csv
-  :ensure t
   :mode "\\.csv\\'")
 
 ;; Dockerfile
 
 (use-package dockerfile-mode
-  :ensure t
   :mode "\\Dockerfile\\'")
 
 
 ;; Go
 (use-package go-mode
-  :ensure t
   :mode "\\*.go\\'"
   :init (add-hook 'go-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'gofmt-before-save)
-            (setq tab-width 4)
-            (setq indent-tabs-mode 1))))
+		  (lambda ()
+		    (add-hook 'before-save-hook 'gofmt-before-save)
+		    (setq tab-width 4)
+		    (setq indent-tabs-mode 1))))
 
 
 ;; Javascript
@@ -268,7 +246,6 @@
   :ensure t)
 ;; Web mode
 (use-package web-mode
-  :ensure t
   :mode "\\.html$"
   :bind ("C-c b" . web-beautify-html)
   :init
@@ -281,7 +258,6 @@
   (setq web-mode-enable-css-colorization t))
 
 (use-package web-beautify
-  :ensure t
   :bind (:map web-mode-map
               ("C-c b" . web-beautify-html)))
 
@@ -294,7 +270,6 @@
 (global-set-key (kbd "C-x t") 'mveytsman/ansi-term)
 
 (use-package shell-pop
-  :ensure t
   :config
   (custom-set-variables
    '(shell-pop-default-directory "~/")
@@ -318,7 +293,7 @@
          ("Guardfile\\'"   . enh-ruby-mode)
          ("Capfile\\'"     . enh-ruby-mode)
          ("Vagrantfile\\'" . enh-ruby-mode))
-  :config 
+  :config
   (setq inf-ruby-console-patterns-alist
 	'((inf-ruby-console-script-p . script)
 	  (".zeus.sock" . zeus)
@@ -329,11 +304,9 @@
 	  ("Gemfile" . default))))
 
 (use-package projectile-rails
-  :ensure t
   :config (projectile-rails-global-mode))
 
 (use-package robe
-  :ensure t
   :bind ("C-M-." . robe-jump)
 
   :init
@@ -347,96 +320,90 @@
 
 ;; Elixir
 (use-package elixir-mode
-  :ensure t
   :init (add-hook 'elixir-format-hook (lambda ()
-                                 (if (projectile-project-p)
-                                      (setq elixir-format-arguments
-                                            (list "--dot-formatter"
-                                                  (concat (locate-dominating-file buffer-file-name ".formatter.exs") ".formatter.exs")))
-                                   (setq elixir-format-arguments nil)))))
+					(if (projectile-project-p)
+					    (setq elixir-format-arguments
+						  (list "--dot-formatter"
+							(concat (locate-dominating-file buffer-file-name ".formatter.exs") ".formatter.exs")))
+					  (setq elixir-format-arguments nil)))))
 (use-package alchemist
-  :ensure t
   :config
   (setq alchemist-goto-erlang-source-dir "/usr/local/opt/asdf/installs/erlang/21.0.3/")
   (setq alchemist-goto-elixir-source-dir "/usr/local/opt/asdf/installs/elixir/1.6.6/"))
 
 (use-package flycheck-credo
-  :ensure t
   :init (add-hook 'elixir-mode-hook 'flycheck-credo-setup))
 
 ;; Clojure
 (use-package cider
-  :ensure t
   :bind ("C-c M-j" . cider-jack-in))
 
 ;; Markdown mode
 (use-package markdown-mode
-  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("\\.md\\'" . gfm-mode)
          ("\\.markdown\\'" . gfm-mode))
   :init (setq markdown-command "multimarkdown"))
+
+;; Nix
+(use-package nix-mode
+  :ensure t)
 
 ;; Rust
 (use-package toml-mode
   :ensure t)
 
 (use-package racer
-  :ensure t
-  ;:hook company-mode
+					;:hook company-mode
   :config (setq company-tooltip-align-annotations t)
   (add-hook 'rust-mode-hook #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode)
   (add-hook 'racer-mode-hook #'company-mode))
 
 (use-package rust-mode
-  :ensure t
   :requires lsp-mode
   :config
   (setq rust-format-on-save t))
 
-;(use-package cargo
- ; :hook (rust-mode . cargo-minor-mode))
+;;(use-package cargo
+;; :hook (rust-mode . cargo-minor-mode))
 
 (use-package flycheck-rust
-  :ensure t
   :hook (flycheck-mode . flycheck-rust-setup))
 
 ;; Org Mode
 
 (use-package org
-  :ensure t
   :config
   (setq org-startup-indented 't
         org-startup-folded nil)
 
   (org-babel-do-load-languages
-	   'org-babel-load-languages
-	   '((awk . t)
-	     (C . t)
-	     (calc . t)
-	     (clojure . t)
-	     (css . t)
-	     (ditaa . t)
-	     (ditaa . t)
-	     (haskell . t)
-	     (java . t)
-	     (js . t)
-	     (latex . t)
-	     (lisp . t)
-	     (makefile . t)
-	     (perl . t)
-	     (python . t)
-	     (ruby . t)
-	     ;; (scala . t)
-	     (screen . t)
-	     ;; (sh . t)
-	     (sql . t)
-	     (sqlite . t))))
+   'org-babel-load-languages
+   '((awk . t)
+     (C . t)
+     (calc . t)
+     (clojure . t)
+     (css . t)
+     (ditaa . t)
+     (ditaa . t)
+     (haskell . t)
+     (java . t)
+     (js . t)
+     (latex . t)
+     (lisp . t)
+     (makefile . t)
+     (perl . t)
+     (python . t)
+     (ruby . t)
+     ;; (scala . t)
+     (screen . t)
+     ;; (sh . t)
+     (sql . t)
+     (sqlite . t))))
 
 ;; Deft mode
 (use-package deft
-  :ensure t
   :bind ("C-c q" . deft)
   :config (setq deft-directory "~/Dropbox/org"
                 deft-default-extension "org"))
