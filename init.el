@@ -308,7 +308,16 @@
 ;; Ruby
 (use-package enh-ruby-mode
   :ensure t
-  :mode "\\*.rb\\'"
+  :mode (("\\.rb\\'"       . enh-ruby-mode)
+         ("\\.ru\\'"       . enh-ruby-mode)
+	 ("\\.jbuilder\\'" . enh-ruby-mode)
+         ("\\.gemspec\\'"  . enh-ruby-mode)
+         ("\\.rake\\'"     . enh-ruby-mode)
+         ("Rakefile\\'"    . enh-ruby-mode)
+         ("Gemfile\\'"     . enh-ruby-mode)
+         ("Guardfile\\'"   . enh-ruby-mode)
+         ("Capfile\\'"     . enh-ruby-mode)
+         ("Vagrantfile\\'" . enh-ruby-mode))
   :config 
   (setq inf-ruby-console-patterns-alist
 	'((inf-ruby-console-script-p . script)
